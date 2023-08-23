@@ -1,12 +1,19 @@
 'use client';
-import { Menu, X } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useState } from 'react';
+
+import { Menu } from 'lucide-react';
+import { useState, useRef } from 'react';
 import Sidebar from './Sidebar';
 
 const MobileSidebar = () => {
   const [dropNav, setDropNav] = useState(false);
+  const sidebarRef = useRef();
+
+  const handleClickOutsideSidebar = (event) => {
+    if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+      setDropNav(false);
+    }
+  };
+
   return (
     <div className='md:hidden'>
       {!dropNav && (
@@ -17,11 +24,16 @@ const MobileSidebar = () => {
       )}
 
       {dropNav && (
-        <div className='fixed top-0 left-0 w-72 h-full z-50'>
-          <Sidebar
-            onClickX={() => setDropNav(false)}
-            onClickLink={() => setDropNav(false)}
-          />
+        <div
+          className='fixed top-0 left-0 w-full h-full backdrop-blur-sm z-50'
+          onClick={handleClickOutsideSidebar}
+        >
+          <div className='w-72 h-full p' ref={sidebarRef}>
+            <Sidebar
+              onClickX={() => setDropNav(false)}
+              onClickLink={() => setDropNav(false)}
+            />
+          </div>
         </div>
       )}
     </div>
