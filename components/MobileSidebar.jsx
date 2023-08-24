@@ -28,7 +28,7 @@ const MobileSidebar = () => {
           className='fixed top-0 left-0 w-full h-full backdrop-blur-sm z-50'
           onClick={handleClickOutsideSidebar}
         >
-          <div className='w-72 h-full p' ref={sidebarRef}>
+          <div className='w-72 h-full' ref={sidebarRef}>
             <Sidebar
               onClickX={() => setDropNav(false)}
               onClickLink={() => setDropNav(false)}
