@@ -13,7 +13,6 @@ const LandingLayout = ({ children }) => {
         <Navbar />
         {children}
       </main>
-      {children}
     </div>
   );
 };
