@@ -3,7 +3,7 @@
 import MobileSidebar from './MobileSidebar';
 import { useRouter } from 'next/navigation';
 import UserMenu from './UserMenu';
-import { getCurrentUser } from '@/actions/getCurrentUser';
+import getCurrentUser from '@/actions/getCurrentUser';
 
 export const Navbar = () => {
   const currentUser = getCurrentUser();
