@@ -34,6 +34,7 @@ const Input = forwardRef(
           )}
         />
         <label
+          htmlFor={id}
           className={cn(
             `absolute 
         text-md
@@ -49,7 +50,6 @@ const Input = forwardRef(
         peer-focus:-translate-y-4`,
             errors[id] ? 'text-rose-500' : 'text-neutral-500'
           )}
-          htmlFor={id}
         >
           {label}
         </label>

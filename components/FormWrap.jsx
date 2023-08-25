@@ -7,8 +7,7 @@ const FormWrap = ({ children }) => {
     flex
     items-center
     justify-center
-    w-full
-    border-red-500
+    w-full    
     px-8
     md:px-64
     '
@@ -19,12 +18,11 @@ const FormWrap = ({ children }) => {
       flex-col
       gap-6
       items-center
-      shadow-md
-    shadow-neutral-300
+      shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px]
       rounded-md
       p-4
       md:p-8
-    w-full
+      w-full
       '
       >
         {children}
