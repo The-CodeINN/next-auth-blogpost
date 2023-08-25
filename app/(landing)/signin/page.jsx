@@ -1,12 +1,14 @@
-import Heading from '@/components/Heading';
-import React from 'react';
+import FormWrap from '@/components/FormWrap';
+import LoginForm from './LoginForm';
 
-const SiginPage = () => {
+const LoginPage = () => {
   return (
-    <div className='flex items-center justify-center '>
-      <Heading heading='Sign In' description='Sign in to your account' />
+    <div className='flex flex-col items-center justify-center'>
+      <FormWrap>
+        <LoginForm />
+      </FormWrap>
     </div>
   );
 };
 
-export default SiginPage;
+export default LoginPage;

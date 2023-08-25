@@ -8,6 +8,7 @@ const Button = forwardRef(
         ref={ref}
         type={type}
         disabled={disabled}
+        {...props}
         className={cn(
           `w-full 
                 rounded-full
@@ -16,9 +17,8 @@ const Button = forwardRef(
                 px-3
                 py-3
                 disabled:cursor-not-allowed 
-                disabled:opacit-50
+                disabled:opacity-50
                 text-black
-                hover:opacity-75
                 transition`,
           className
         )}
