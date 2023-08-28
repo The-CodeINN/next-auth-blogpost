@@ -7,7 +7,6 @@ import prisma from '@/lib/prismadb';
 
 export const authOptions = {
   adapter: PrismaAdapter(prisma),
-
   providers: [
     CredentialsProvider({
       name: 'credentials',
@@ -28,21 +27,25 @@ export const authOptions = {
           throw new Error('Invalid email or password');
         }
 
-        const user = await prisma.user.findUnique({
+        const existingUser = await prisma.existingUser.findUnique({
           where: { email: credentials.email },
         });
 
-        if (!user || !user.hashedPassword) {
+        if (!existingUser) {
+          throw new Error('User does not exist');
+        }
+
+        if (!existingUser || !existingUser.hashedPassword) {
           throw new Error('Invalid Credentials');
         }
 
         const isCorrectPassword = await bcrypt.compare(
           credentials.password,
-          user.hashedPassword
+          existingUser.hashedPassword
         );
 
         if (!isCorrectPassword) {
-          throw new Error('Invalid Credentials');
+          throw new Error('Incorrect Password');
         }
 
         return user;
