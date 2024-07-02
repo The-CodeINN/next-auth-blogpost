@@ -1,5 +1,6 @@
 'use client';
 
+import { loginWithCredentials } from '@/actions/auth';
 import AuthButton from '@/components/authButton';
 import { LoginGithub } from '@/components/loginGithub';
 import {
@@ -17,7 +18,7 @@ const LoginForm = () => {
   return (
     <div className=' w-full flex mt-20 justify-center'>
       <Card className='mx-auto max-w-sm'>
-        <form action=''>
+        <form action={loginWithCredentials}>
           <CardHeader>
             <CardTitle className='text-2xl'>Login</CardTitle>
             <CardDescription>
